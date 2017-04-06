@@ -1,0 +1,32 @@
+1.What is meant by FlumeNG ?
+FlumeNG is the latest major revision of Apache Flume.
+Flume is used for high volume of data ingestion into the hdfs of event based data.
+FlumeNG uses a single-hop message delivery guarantee semantics to provide end-to-end reliability 
+for the system.
+To ensure this feature, certain new concepts have been introduced into its design,
+while some of the existing concepts have been either redefined, reused or dropped.
+
+
+
+2.Can Flume provides 100 % reliability to the data flow?
+Yes, Flume can provide 100% reliability to the data flow.
+As it follows a transactional based approach and it uses a seperate transactions for guarantee delivery 
+between source to channel and the channel to sink.
+
+
+3.Can Flume can distributes data to multiple destinations?
+Yes , Flume can distribute data to multiple destinations by the process of fan out where
+data flow from single source to multiple channels and from the channels to multiple sink.
+
+ex:                   channel1 = sink1
+          source  =
+                      channel2 = sink2
+
+
+4.Explain about the different channel types in Flume. And which channel type is
+faster?
+Fulme comes with 2 types of channel
+Memory Channel : Data are read from source to memory and transferred to the sink.
+File Channel   : The file channel transfers the contents from the source to a file in the file system and 
+deletes the file after the contents have been succesfully delivered to the sink.
+Memory channel is the fastest among the two.
